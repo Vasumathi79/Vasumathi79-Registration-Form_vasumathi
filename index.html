@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(147, 211, 211);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            background-color: pink;
+            border-radius: 15px;
+            box-shadow: 0 0 20px blue;
+            padding: 20px;
+            width: 300px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color:#555;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: #4caf50;
+            color: black;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .main h1 {
+            color: #6c0cda;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class = "main">
+  <center> 
+    <h1>Registration Form</h1>
+     <form  onsubmit="return formvalid()">
+        <label for="nam">Enter your Name</label>
+        <input type="text" id="nam" placeholder="Enter your Name"><br>
+        <label for="mail">Enter your Mail</label>
+        <input type="email" id="mail" placeholder="Enter your Email"><br>
+        <label for="pass">Enter your password</label>
+        <input type="password" id="pass" placeholder="enter your password"><br>
+        <label for="pass1">Enter your confirm password</label>
+        <input type="password" id="pass1" placeholder="confirm password"><br>
+        <label for="contact">Enter your Contact</label>
+        <input type="text" id="contact" placeholder="Enter your Mobile"><br>
+        <label>Enter your Gender</label>
+        <input type="radio">Female
+        <input type="radio">Male
+        <input type="radio">Others<br>
+        <button type="submit">Submit</button>
+        
+
+    </form>
+    </center>
+</div>
+</body>
+<script>
+    function formvalid(){
+        let name=document.getElementById("nam").value.trim();
+        let mail=document.getElementById("mail").value.trim();
+        let pass=document.getElementById("pass").value.trim();
+        let confirm=document.getElementById("pass1").value.trim();
+        let contact=document.getElementById("contact").value.trim();
+        let special = "!@#$%*><?/";
+        if (nam.length<=3){
+            alert("Enter valid name");
+            return false;
+        }else if(![...special].some((char) => pass.includes(char))){
+            alert("password must includes special characters");
+            return false;
+        }else if(confirm !== pass){
+            alert("Enter valid Password ");
+            return false;
+        }else if(contact.length !==10){
+            alert("Enter valid Mobile Number 1-10");
+            return false;
+        }else{
+            alert("your Form Submitted");
+            return true;
+        }
+}
+</script>
+</html>
